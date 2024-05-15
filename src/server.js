@@ -32,7 +32,7 @@ app.use("/api", apiRoutes);
 
 // default index route
 app.get('/', (req, res) => {
-  res.send('hi');
+  res.send('hello world');
 });
 
 // START THE SERVER
@@ -41,7 +41,7 @@ async function startServer() {
   try {
     // connect DB
     const mongoURI =
-      process.env.MONGODB_URI || "mongodb://localhost/platform_db";
+      process.env.MONGODB_URI || "mongodb://localhost/biblio_platform_db";
     await mongoose.connect(mongoURI);
     console.log(`Mongoose connected to: ${mongoURI}`);
 
