@@ -1,6 +1,6 @@
 import { Router } from "express";
-import * as Posts from "./controllers/post_controller.js";
-
+import * as Books from "./controllers/books_controller.js";
+import * as Users from "./controllers/user_controller.js"
 const router = Router();
 
 router.get("/", (req, res) => {
@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
 ///your routes will go here
 
 // Route for creating a new post
-router.route("/posts")
+router.route("/books")
   .post(async (req, res) => {
     try {
       const result = await Posts.createPost(req.body);
@@ -29,7 +29,7 @@ router.route("/posts")
   });
 
 // Routes for specific post
-router.route("/posts/:id")
+router.route("/books/:id")
   .get(async (req, res) => {
     try {
       const result = await Posts.getPost(req.params.id);
@@ -38,6 +38,7 @@ router.route("/posts/:id")
       res.status(500).json({ error });
     }
   })
+  //
   .put(async (req, res) => {
     try {
       const result = await Posts.updatePost(req.params.id, req.body);
